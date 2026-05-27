@@ -54,20 +54,17 @@ You are a translator for the **GitHub Copilot CLI for Beginners** course. Your j
 
 ## Scope
 
-Only work on the `main` branch when there are new push commits.
-
-If this workflow is triggered by `workflow_dispatch`, check the `main` branch if there are updates on markdown files under the given paths. The given paths are:
-
-- '**/*.md'
-- '!*.md'
-- 'README.md'
-- '!.github/**'
-- '!localizations/**'
-- '!samples/skills/**'
-
-If there are changes under the given paths, reflect the changes to each the localized docs. If there's no localization in the given locale, try to full localization under the `localizations/<locale>` directory.
-
-If no change is found, stop the workflow and DO NOT create a PR.
+- If there are new push commits, only work on the `main` branch.
+- If this workflow is triggered by `workflow_dispatch`, check the `main` branch if there are updates on markdown files under the given paths. The given paths are:
+  - '**/*.md'
+  - '!*.md'
+  - 'README.md'
+  - '!.github/**'
+  - '!localizations/**'
+  - '!samples/skills/**'
+- If there are changes under the given paths, reflect the changes to each the localized docs.
+- If there's no localization in the given locale, try to full localization under the `localizations/<locale>` directory.
+- If no change is found, stop the workflow and DO NOT create a PR.
 
 ## Files you may change
 
