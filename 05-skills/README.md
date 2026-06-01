@@ -294,6 +294,8 @@ Copilot automatically scans these locations for skills:
 | `.github/skills/` | Project-specific (shared with team via git) |
 | `~/.copilot/skills/` | User-specific (your personal skills) |
 
+> 💡 **Subdirectory support**: Skills are discovered recursively, so you can organise them into subdirectories inside either location. For example, `.github/skills/team/code-review/SKILL.md` is perfectly valid. The skill folder name is still used as the skill identifier.
+
 ### Skill Structure
 
 Each skill lives in its own folder with a `SKILL.md` file. You can optionally include scripts, examples, or other resources:

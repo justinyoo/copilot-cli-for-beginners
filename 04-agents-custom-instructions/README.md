@@ -140,6 +140,8 @@ When reviewing code, always check for:
 | `.github/agents/` | Project-specific | Team-shared agents with project conventions |
 | `~/.copilot/agents/` | Global (all projects) | Personal agents you use everywhere |
 
+> 💡 **Subdirectory support**: Both locations support subdirectories — agent files are discovered recursively. For example, you can organise agents into `.github/agents/team/` or `.github/agents/project/` and Copilot will still find them. This is handy for larger projects where you want to group related agents together.
+
 **This project includes sample agent files in the [.github/agents/](../.github/agents/) folder**. You can write your own, or customize the ones already provided.
 
 <details>
