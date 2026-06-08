@@ -373,7 +373,10 @@ These commands are great to learn initially as you're getting started with Copil
 | `/model` | Show or switch AI model | When you want to change the AI model |
 | `/plan` | Plan your work out before coding | For more complex features |
 | `/research` | Deep research using GitHub and web sources | When you need to investigate a topic before coding |
+| `/voice` | Dictate your prompt using your microphone instead of typing | When you prefer to speak your question out loud |
 | `/exit` | End the session | When you're done |
+
+> 💡 **`/voice` tip**: `/voice` uses a local speech-to-text model that runs on your machine, so nothing is sent to an external transcription service. Just run `/voice`, speak your prompt, and Copilot CLI will type it in for you. Requires a working microphone.
 
 > 💡 **`/ask` vs regular chat**: Normally every message you send becomes part of the ongoing conversation and affects future responses. `/ask` is an "off the record" shortcut — perfect for quick one-off questions like `/ask What does YAML mean?` without polluting your session context.
 
@@ -458,6 +461,7 @@ That's it for getting started! As you become comfortable, you can explore additi
 
 | Command | What It Does |
 |---------|--------------|
+| `/billing` | Overview of AI credit usage features — see how your requests are counted and billed |
 | `/changelog` | Display changelog for CLI versions |
 | `/feedback` | Submit feedback to GitHub |
 | `/help` | Show all available commands |

@@ -10,7 +10,7 @@ So far, you've been using Copilot CLI as a general-purpose assistant. Agents let
 
 By the end of this chapter, you'll be able to:
 
-- Use built-in agents: Plan (`/plan`), Code-review (`/review`), and understand automatic agents (Explore, Task)
+- Use built-in agents: Plan (`/plan`), Code-review (`/review`), Rubber Duck, and understand automatic agents (Explore, Task)
 - Create specialized agents using agent files (`.agent.md`)
 - Use agents for domain-specific tasks
 - Switch between agents using `/agent` and `--agent`
@@ -67,12 +67,13 @@ Never used or made an agent? Here's all you need to know to get started for this
 | **Plan** | `/plan` or `Shift+Tab` (cycle modes) | Creates step-by-step implementation plans before coding |
 | **Code-review** | `/review` | Reviews staged/unstaged changes with focused, actionable feedback |
 | **Init** | `/init` | Generates project configuration files (instructions, agents) |
+| **Rubber Duck** | Ask Copilot to "help me think through" a problem | Helps you articulate a problem out loud so the solution often becomes clear — just like [explaining a bug to a rubber duck](https://en.wikipedia.org/wiki/Rubber_duck_debugging)! |
 | **Explore** | *Automatic* | Used internally when you ask Copilot to explore or analyze the codebase |
 | **Task** | *Automatic* | Executes commands like tests, builds, lints, and dependency installs |
 
 <br>
 
-**Built-in agents in action** - Examples of invoking Plan, Code-review, Explore, and Task
+**Built-in agents in action** - Examples of invoking Plan, Code-review, Rubber Duck, Explore, and Task
 
 ```bash
 copilot
@@ -82,6 +83,9 @@ copilot
 
 # Invoke the Code-review agent on your changes
 > /review
+
+# Invoke the Rubber Duck agent to think through a tricky problem
+> Help me think through why my search function returns empty results
 
 # Explore and Task agents are invoked automatically when relevant:
 > Run the test suite        # Uses Task agent
