@@ -451,6 +451,7 @@ That's it for getting started! As you become comfortable, you can explore additi
 
 | Command | What It Does |
 |---------|--------------|
+| `/settings` | Browse and edit all user settings in an interactive dialog |
 | `/statusline` (or `/footer`) | Customize which items appear in the status bar at the bottom of the session (directory, branch, effort, context window, quota) |
 | `/theme` | View or set terminal theme |
 
@@ -458,6 +459,7 @@ That's it for getting started! As you become comfortable, you can explore additi
 
 | Command | What It Does |
 |---------|--------------|
+| `/app` | Open the GitHub app in a browser (useful for quickly jumping to GitHub from the terminal) |
 | `/changelog` | Display changelog for CLI versions |
 | `/feedback` | Submit feedback to GitHub |
 | `/help` | Show all available commands |

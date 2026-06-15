@@ -138,6 +138,7 @@ When reviewing code, always check for:
 | Location | Scope | Best For |
 |----------|-------|----------|
 | `.github/agents/` | Project-specific | Team-shared agents with project conventions |
+| `.claude/agents/` | Project-specific | Same as `.github/agents/` — use whichever fits your team's conventions |
 | `~/.copilot/agents/` | Global (all projects) | Personal agents you use everywhere |
 
 **This project includes sample agent files in the [.github/agents/](../.github/agents/) folder**. You can write your own, or customize the ones already provided.
