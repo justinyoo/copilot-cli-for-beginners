@@ -171,6 +171,9 @@ MCP servers are configured in `~/.copilot/mcp-config.json` (user-level, applies 
 | `"command": "npx"` | The program to run (npx runs npm packages) |
 | `"args": [...]` | Arguments passed to the command |
 | `"tools": ["*"]` | Allow all tools from this server |
+| `"deferTools": true` | *(Optional)* Keep this server's tools always available, even when tool search is enabled |
+
+> 💡 **What is tool search?** When you have many MCP tools configured, Copilot CLI can automatically filter them down to the most relevant ones for each query. This is called *tool search*. By default, tools from a server may be deferred (temporarily set aside) if they don't seem relevant. Setting `"deferTools": true` on a specific server tells Copilot to always load that server's tools, regardless of what tool search decides.
 
 **Important JSON rules:**
 - Use double quotes `"` for strings (not single quotes)
