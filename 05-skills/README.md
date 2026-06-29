@@ -358,6 +358,21 @@ Provide issues as a numbered list with severity:
 | `name` | **Yes** | Unique identifier (lowercase, hyphens for spaces) |
 | `description` | **Yes** | What the skill does and when Copilot should use it |
 | `license` | No | License that applies to this skill |
+| `argument-hint` | No | A short hint shown to users when directly invoking the skill (e.g., "Provide the file to check, e.g. @book_app.py") |
+
+> 💡 **What is `argument-hint`?** When a user types `/your-skill-name` to invoke your skill directly, the CLI displays this hint text to remind them what to include in their prompt. For example, if your skill reviews files, a hint like `"Provide the file to check, e.g. @book_app.py"` helps users know exactly what to type next.
+
+Example skill with argument hint:
+```markdown
+---
+name: security-audit
+description: Security-focused code review checking OWASP Top 10 vulnerabilities
+argument-hint: "Provide the file or directory to check, e.g. @book_app.py"
+---
+
+# Security Audit
+...
+```
 
 > 📖 **Official docs**: [About Agent Skills](https://docs.github.com/copilot/concepts/agents/about-agent-skills)
 
@@ -478,7 +493,7 @@ Discover installed skills, find community skills, and share your own.
 
 ## Managing Skills with the `/skills` Command
 
-Use the `/skills` command to manage your installed skills:
+Use the `/skills` command (or the `/skill` alias — both work the same way) to manage your installed skills:
 
 | Command | What It Does |
 |---------|--------------|
@@ -488,7 +503,29 @@ Use the `/skills` command to manage your installed skills:
 | `/skills remove <name>` | Disable or uninstall a skill |
 | `/skills reload` | Reload skills after editing SKILL.md files |
 
+> 💡 **`/skill` is an alias for `/skills`**: You can use either `/skill list` or `/skills list` — they are identical. The shorter `/skill` is handy once you're comfortable with the commands.
+
 > 💡 **Remember**: You don't need to "activate" skills for each prompt. Once installed, skills are **automatically triggered** when your prompt matches their description. These commands are for managing which skills are available, not for using them.
+
+### Managing Skills from the Terminal (Without Opening Copilot)
+
+You can also manage skills directly from your terminal using the `copilot skill` subcommand — no need to open an interactive Copilot session:
+
+```bash
+# List all available skills
+copilot skill list
+
+# Add a skill from a local file
+copilot skill add .github/skills/security-audit/SKILL.md
+
+# Add a skill from a URL
+copilot skill add https://example.com/my-skill/SKILL.md
+
+# Remove a skill
+copilot skill remove security-audit
+```
+
+> 💡 **When to use `copilot skill` vs `/skills`?** Use `copilot skill` in scripts, automation, or when you just want to quickly check what skills are installed without opening a full Copilot session. Use `/skills` when you're already chatting with Copilot.
 
 ### Example: View Your Skills
 
@@ -838,6 +875,15 @@ Run `/skills reload` after creating or editing skills to ensure changes are pick
 # Copilot will describe relevant skills it found
 ```
 
+**Use `/diagnose` to analyze your session** - If something isn't working as expected, the `/diagnose` command analyzes your session logs and gives you a report of what's loaded and any issues it finds:
+```bash
+> /diagnose
+# Copilot analyzes session logs and reports what agents,
+# skills, and MCP servers are active — and flags any problems
+```
+
+> 💡 Think of `/diagnose` as a health check for your Copilot session. It's especially helpful when a skill isn't triggering as expected.
+
 **How do I know my skill is actually working?**
 
 1. **Check the output format**: If your skill specifies an output format (like `[CRITICAL]` tags), look for that in the response
@@ -862,9 +908,11 @@ Run `/skills reload` after creating or editing skills to ensure changes are pick
 
 1. **Skills are automatic**: Copilot loads them when your prompt matches the skill's description
 2. **Direct invocation**: You can also invoke skills directly with `/skill-name` as a slash command
-3. **SKILL.md format**: YAML frontmatter (name, description, optional license) plus markdown instructions
+3. **SKILL.md format**: YAML frontmatter (name, description, optional license and argument-hint) plus markdown instructions
 4. **Location matters**: `.github/skills/` for project/team sharing, `~/.copilot/skills/` for personal use
 5. **Description is key**: Write descriptions that match how you naturally ask questions
+6. **`copilot skill` subcommand**: Manage skills from the terminal without opening a Copilot session
+7. **`/diagnose`**: Use this command to troubleshoot when something isn't working as expected
 
 > 📋 **Quick Reference**: See the [GitHub Copilot CLI command reference](https://docs.github.com/en/copilot/reference/cli-command-reference) for a complete list of commands and shortcuts.
 
