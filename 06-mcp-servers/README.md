@@ -912,6 +912,7 @@ These work when you're already inside `copilot`:
 
 | Command | What It Does |
 |---------|--------------|
+| `/mcp list` | Show currently attached MCP servers and their connection status (works even while the agent is running) |
 | `/mcp show` | Show all configured MCP servers and their status |
 | `/mcp add` | Interactive setup for adding a new server |
 | `/mcp edit <server-name>` | Edit an existing server configuration |
@@ -937,7 +938,7 @@ copilot mcp disable context7
 
 > 💡 **When to use which?** Use `/mcp` slash commands when you're already in a chat session. Use `copilot mcp` from the terminal when you want to quickly check or change your server settings before starting a session.
 
-For most of this course, `/mcp show` is all you need. The other commands become useful as you manage more servers over time.
+For most of this course, `/mcp show` is all you need. Use `/mcp list` when you want a quick check of which servers are currently active in your session — it works even while Copilot is busy working. The other commands become useful as you manage more servers over time.
 
 </details>
 
