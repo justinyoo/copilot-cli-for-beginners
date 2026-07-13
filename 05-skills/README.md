@@ -560,6 +560,18 @@ copilot
 # Install a plugin from the marketplace
 ```
 
+Once you have plugins installed, use the `/plugins` dashboard to see and manage them all in one place:
+
+```bash
+copilot
+
+> /plugins
+# Opens an interactive dashboard showing all installed plugins
+# You can enable, disable, or inspect each plugin from this view
+```
+
+> 💡 **Tip**: You can reload a plugin after editing it without restarting your session. Just use the dashboard to toggle it off and back on, or run `/plugins` and select the plugin to refresh it.
+
 To keep your local plugin catalog current, refresh it with:
 
 ```bash

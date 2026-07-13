@@ -375,6 +375,32 @@ Context usage: 62k/200k tokens (31%)
 
 > 💡 **Made a mistake or want to try a different approach?** Use `/rewind` (or press Esc twice) to open a **timeline picker** that lets you roll back to any earlier point in your conversation, not just the most recent one. This is useful when you went down the wrong path and want to backtrack without starting over entirely.
 
+### ✨ Refine Your Prompt with `/refine`
+
+Not sure how to phrase your question? That's completely normal! Use `/refine` to turn a rough, stream-of-consciousness thought into a clear, well-structured prompt:
+
+```bash
+copilot
+
+> /refine
+# Copilot asks for your rough idea, then rewrites it into a clear prompt you can use
+```
+
+**Example:**
+
+```
+You type:  the book app thing has a bug where it doesnt handle like when
+           someone puts in a bad year like negative or too big or whatever
+
+/refine rewrites it as:
+  "In @samples/book-app-project/books.py, the add_book() function does not
+  validate the year field. It accepts negative numbers and implausibly large
+  values. Please add validation to reject years outside the range 1 to 2100
+  and return a clear error message."
+```
+
+> 💡 **When to use `/refine`**: Whenever you know *what* you want but can't quite find the right words. Think out loud, then let `/refine` clean it up before you send it to the model.
+
 ---
 
 ### Pick Up Where You Left Off
