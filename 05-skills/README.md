@@ -500,7 +500,7 @@ copilot
 Available skills:
 - security-audit: Security-focused code review checking OWASP Top 10
 - generate-tests: Generate comprehensive unit tests with edge cases
-- code-checklist: Team code quality checklist
+- code-checklist: Team code quality checklist [disabled]
 ...
 
 > /skills info security-audit
@@ -510,6 +510,8 @@ Source: Project
 Location: .github/skills/security-audit/SKILL.md
 Description: Security-focused code review checking OWASP Top 10 vulnerabilities
 ```
+
+> 💡 **Disabled skills**: If a skill has been turned off, it will be marked as `[disabled]` in the list. Disabled skills are still installed but won't be auto-triggered. Use `/skills add <name>` to re-enable a skill if you need it again.
 
 ---
 
