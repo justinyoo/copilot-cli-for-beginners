@@ -491,6 +491,8 @@ copilot
 
 > 💡 **Not sure which model to pick?** Select **`Auto`** from the model picker to let Copilot automatically choose the best available model for each session. This is a great default if you're just getting started and don't want to think about model selection.
 
+> 💡 **Plan mode model**: You can pick a separate, faster model just for planning. Use `/model plan` (or `/model --plan`) inside a session to open the model picker scoped to plan mode. This lets you use a lightweight model for planning steps and a more powerful one for actual code generation. To clear it, run `/model plan off`.
+
 </details>
 
 ---

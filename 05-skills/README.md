@@ -589,6 +589,31 @@ gh skill install github/awesome-copilot code-checklist
 gh skill install github/awesome-copilot code-checklist --scope user
 ```
 
+### Installing a Skill with the Copilot CLI
+
+You can also install skills directly from the Copilot CLI itself — no separate `gh` command needed. This works with local files, URLs, or directories:
+
+```bash
+copilot
+
+> /plugins install --skill <path-to-skill-file-or-directory>
+# Installs a skill from a local file or folder
+
+> /plugins install --skill https://example.com/my-skill/SKILL.md
+# Installs a skill from a URL
+
+> /plugins install --skill ./my-skill --scope project
+# Installs into the current project only (adds to .github/skills/)
+```
+
+You can also use the CLI command directly (outside an interactive session):
+
+```bash
+copilot plugins install --skill ./my-skill
+```
+
+> 💡 **Which method should I use?** Both do the same thing. Use `gh skill install` when you want to browse and install skills from GitHub repositories. Use `copilot plugins install --skill` when you have a skill file locally or want to stay inside the Copilot CLI session.
+
 > ⚠️ **Review before installing**: Always read a skill's `SKILL.md` before installing it. Skills control what Copilot does, and a malicious skill could instruct it to run harmful commands or modify code in unexpected ways.
 
 ---
