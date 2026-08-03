@@ -132,17 +132,18 @@ After trusting the folder, you can sign in with your GitHub account.
 > /login
 ```
 
-**What happens next:**
+**What happens next (web browser login — default on local terminals):**
 
-1. Copilot CLI displays a one-time code (like `ABCD-1234`)
-2. Your browser opens to GitHub's device authorization page. Sign in to GitHub if you haven't already.
-3. Enter the code when prompted
-4. Select "Authorize" to grant GitHub Copilot CLI access
-5. Return to your terminal - you're now signed in!
+1. Copilot CLI opens your browser to GitHub's authorization page
+2. Sign in to GitHub if you haven't already
+3. Click **Authorize** to grant GitHub Copilot CLI access
+4. Return to your terminal — you're now signed in!
+
+> 💡 **Headless or remote terminals**: If you're working in a remote session, SSH, or CI/CD environment, Copilot CLI defaults to the **device code** flow instead — your terminal shows a one-time code like `ABCD-1234` that you enter at [github.com/login/device](https://github.com/login/device). You can also force either mode at any time: run `/login` inside a session to pick your preferred flow interactively, or pass `--web-flow` or `--device-code` to `copilot login` on the command line.
 
 <img src="images/auth-device-flow.png" alt="Device Authorization Flow - showing the 5-step process from terminal login to signed-in confirmation" width="800"/>
 
-*The device authorization flow: your terminal generates a code, you verify it in the browser, and Copilot CLI is authenticated.*
+*The device code flow (used on remote/headless terminals). On local terminals, Copilot CLI v1.0.77+ opens your browser directly — no code needed.*
 
 **Tip**: The sign-in persists across sessions. You only need to do this once unless your token expires or you explicitly sign out.
 
@@ -256,7 +257,7 @@ copilot
 
 ### Browser doesn't open automatically
 
-Manually visit [github.com/login/device](https://github.com/login/device) and enter the code shown in your terminal.
+On a local terminal, the browser should open automatically as part of the web OAuth flow. If it doesn't, switch to the device code flow as a fallback: run `/login` inside a session and select the device code option, or run `copilot login --device-code` in your terminal. Then visit [github.com/login/device](https://github.com/login/device) and enter the code shown.
 
 ### Token expired
 
