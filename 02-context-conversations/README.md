@@ -373,7 +373,9 @@ Context usage: 62k/200k tokens (31%)
 
 > 💡 **When to use `/clear` or `/new`**: If you've been reviewing books.py and want to switch to discussing utils.py, run /new first (or /clear if you don't need the session history). Otherwise stale context from the old topic may confuse responses.
 
-> 💡 **Made a mistake or want to try a different approach?** Use `/rewind` (or press Esc twice) to open a **timeline picker** that lets you roll back to any earlier point in your conversation, not just the most recent one. This is useful when you went down the wrong path and want to backtrack without starting over entirely.
+> 💡 **Made a mistake or want to try a different approach?** Use `/rewind` (or press Esc twice) to open a **timeline picker** that lets you roll back to any earlier point in your conversation, not just the most recent one. This is useful when you went down the wrong path and want to backtrack without starting over entirely. When you rewind, Copilot CLI asks whether to restore **conversation only** or **conversation + files** — choose "conversation only" to keep your file changes while replaying the chat, or "conversation + files" to undo both.
+
+> 💡 **No git required**: `/rewind` works even in folders that aren't git repositories, and it only touches the files that Copilot CLI itself changed — your other edits are left untouched.
 
 ---
 

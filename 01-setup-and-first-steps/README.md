@@ -425,11 +425,14 @@ That's it for getting started! As you become comfortable, you can explore additi
 |---------|--------------|
 | `/add-dir <directory>` | Add a directory to allowed list |
 | `/allow-all [on\|off\|show]` | Auto-approve all permission prompts; use `on` to enable, `off` to disable, `show` to check current status |
+| `/permissions` | Switch between approval modes interactively — a friendlier way to manage what Copilot CLI can do without typing `/allow-all` flags |
 | `/yolo` | Quick alias for `/allow-all on` — auto-approves all permission prompts. |
 | `/cwd`, `/cd [directory]` | View or change working directory |
 | `/list-dirs` | Show all allowed directories |
 
 > ⚠️ **Use with caution**: `/allow-all` and `/yolo` skip confirmation prompts. Great for trusted projects, but be careful with untrusted code.
+
+> 💡 **New to permissions?** Start with `/permissions` — it walks you through the available approval modes with a simple menu, so you don't need to memorize flags.
 
 ### Session
 
@@ -442,7 +445,7 @@ That's it for getting started! As you become comfortable, you can explore additi
 | `/new` | Ends the current session (saving it to history for search/resume) and starts a fresh conversation. |
 | `/resume` | Switch to a different session (optionally specify session ID or name) |
 | `/rename` | Rename the current session (omit the name to auto-generate one) |
-| `/rewind` | Open a timeline picker to roll back to any earlier point in the conversation |
+| `/rewind` | Open a timeline picker to roll back to any earlier point in the conversation; prompts whether to restore conversation only, or conversation + files |
 | `/usage` | Display session usage metrics and statistics |
 | `/session` | Show session info and workspace summary; use `/session delete`, `/session delete <id>`, or `/session delete-all` to remove sessions |
 | `/share` | Export session as a markdown file, GitHub gist, or self-contained HTML file |
