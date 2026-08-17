@@ -193,7 +193,7 @@ When you're done exploring, exit the session:
 
 You've just seen what Copilot CLI can do. Now let's understand *how* to use these capabilities effectively. The key is knowing which of the three interaction modes to use for different situations.
 
-> 💡 **Note**: Copilot CLI also has an **Autopilot** mode where it works through tasks without waiting for your input. It's powerful but requires granting full permissions and uses premium requests autonomously. This course focuses on the three modes below. We'll point you to Autopilot once you're comfortable with the basics.
+> 💡 **Note**: Copilot CLI also has an **Autopilot** mode where it works through tasks without waiting for your input. It's powerful and uses premium requests autonomously. This course focuses on the three modes below. We'll point you to Autopilot once you're comfortable with the basics.
 
 ---
 
@@ -318,7 +318,20 @@ Proceed with implementation? [Y/n]
 
 > 💡 **Want something more complex?** Try: `/plan Add search and filter capabilities to the book app`. Plan mode scales from simple features to full applications.
 
-> 📚 **Autopilot mode**: You may have noticed Shift+Tab cycles through a third mode called **Autopilot**. In autopilot mode, Copilot works through an entire plan without waiting for your input after each step — like handing a task to a colleague and saying "let me know when you're finished." The typical workflow is plan → accept → autopilot, which means you need to be good at writing plans first. You can also launch directly into autopilot with `copilot --autopilot`. Get comfortable with Interactive and Plan modes first, then see the [official docs](https://docs.github.com/copilot/concepts/agents/copilot-cli/autopilot) when you're ready.
+> 📚 **Autopilot mode**: You may have noticed Shift+Tab cycles through a third mode called **Autopilot**. In autopilot mode, Copilot works through an entire plan without waiting for your input after each step — like handing a task to a colleague and saying "let me know when you're finished." The typical workflow is plan → accept → autopilot, which means you need to be good at writing plans first.
+>
+> As of v1.0.79, you can use autopilot directly with a few handy options:
+>
+> - **Use `/autopilot <objective>`** inside an interactive session to set an explicit goal and let Copilot run with it.
+> - **Combine `--plan` and `--mode autopilot`** to first see the plan, then let Copilot implement it automatically:
+>
+> ```bash
+> copilot --plan --mode autopilot
+>
+> > Add a "mark as read" command to the book app
+> ```
+>
+> Get comfortable with Interactive and Plan modes first, then see the [official docs](https://docs.github.com/copilot/concepts/agents/copilot-cli/autopilot) when you're ready.
 
 ---
 
@@ -370,7 +383,7 @@ These commands are great to learn initially as you're getting started with Copil
 | `/ask` | Ask a quick question without it affecting your conversation history | When you want a quick answer without derailing your current task |
 | `/clear` | Clear conversation and start fresh | When switching topics |
 | `/help` | Show all available commands | When you forget a command |
-| `/model` | Show or switch AI model | When you want to change the AI model |
+| `/model` | Show or switch AI model for the current session | When you want to change the AI model (resets next session) |
 | `/plan` | Plan your work out before coding | For more complex features |
 | `/research` | Deep research using GitHub and web sources | When you need to investigate a topic before coding |
 | `/exit` | End the session | When you're done |
@@ -406,7 +419,7 @@ That's it for getting started! As you become comfortable, you can explore additi
 |---------|--------------|
 | `/delegate` | Hand off task to GitHub Copilot cloud agent |
 | `/fleet` | Split a complex task into parallel subtasks for faster completion |
-| `/model` | Show or switch AI model |
+| `/model` | Show or switch AI model for the current session |
 | `/tasks` | View background subagents and detached shell sessions |
 
 ### Code
@@ -478,7 +491,7 @@ copilot
 
 ### Switching Models
 
-Copilot CLI supports multiple AI models from OpenAI, Anthropic, Google, and others. The models available to you depend on your subscription level and region. Use `/model` to see your options and switch between them:
+Copilot CLI supports multiple AI models from OpenAI, Anthropic, Google, and others. The models available to you depend on your subscription level and region. Use `/model` to see your options and switch between them for the current session:
 
 ```bash
 copilot
@@ -486,6 +499,14 @@ copilot
 
 # Shows available models and lets you pick one. Select Sonnet 4.5.
 ```
+
+> 💡 **Session-scoped**: As of v1.0.79, `/model` only applies to the current session. When you start a new session, it resets to the default model. To set a **persistent default** that carries over to all future sessions, use `/config model` instead:
+>
+> ```bash
+> copilot
+> > /config model
+> # Pick your preferred model — it will be used by default in every new session.
+> ```
 
 > 💡 **Tip**: Some models cost more "premium requests" than others. Models marked **1x** (like Claude Sonnet 4.5) are a great default. They're capable and efficient. Higher-multiplier models use your premium request quota faster, so save those for when you really need them.
 
