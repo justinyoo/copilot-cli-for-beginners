@@ -264,6 +264,8 @@ copilot
 
 Notice how each prompt builds on the previous answer. You're having a conversation, not starting over each time.
 
+> 💡 **Voice Dictation**: Press **Ctrl+Space** to toggle voice dictation in an interactive session. Speak your prompts instead of typing them — great when you want to describe a problem out loud or just need a break from the keyboard.
+
 ---
 
 ### Mode 2: Plan Mode
@@ -361,6 +363,26 @@ copilot --allow-all -p "Review @myfile.py for issues"
 
 ---
 
+## ⚙️ Customizing Your Default Mode
+
+You don't have to accept the default startup behavior every time. The **`defaultMode`** and **`defaultPermissionMode`** settings let you choose how Copilot CLI behaves when you launch a new interactive session:
+
+| Setting | What It Controls |
+|---------|-----------------|
+| `defaultMode` | Your preferred starting mode: `interactive` (default), `plan`, or `autopilot` |
+| `defaultPermissionMode` | Whether Copilot asks before running commands, reading files, or accessing the web |
+
+Set these once using the `/settings` command inside an interactive session:
+
+```bash
+copilot
+> /settings
+```
+
+After you save your preferences, every new session starts exactly the way you like — no need to type `/plan` or adjust permissions manually each time.
+
+---
+
 ## Essential Slash Commands
 
 These commands are great to learn initially as you're getting started with Copilot CLI:
@@ -432,6 +454,8 @@ That's it for getting started! As you become comfortable, you can explore additi
 > ⚠️ **Use with caution**: `/allow-all` and `/yolo` skip confirmation prompts. Great for trusted projects, but be careful with untrusted code.
 
 ### Session
+
+> 💡 **Session Restore**: If Copilot CLI closes unexpectedly — due to a crash, a power cut, or a machine restart — it automatically offers to restore your open sessions the next time you launch it. Just follow the prompt to pick up right where you left off!
 
 | Command | What It Does |
 |---------|--------------|
@@ -589,6 +613,18 @@ You can also enable remote access from inside an active session at any time:
 ```
 
 Additional details about remote sessions can be found in the [Copilot CLI docs](https://docs.github.com/copilot/how-tos/copilot-cli/steer-remotely).
+
+---
+
+## 💡 Tip: Open the GitHub Copilot App
+
+You can open the **GitHub Copilot web app** for the current directory right from your terminal:
+
+```bash
+copilot app
+```
+
+This launches the GitHub Copilot app in your browser, connected to the project in your current directory. It's a handy way to switch between the CLI and the web interface whenever you want a visual view of your work.
 
 ---
 

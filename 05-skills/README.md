@@ -294,6 +294,8 @@ Copilot automatically scans these locations for skills:
 | `.github/skills/` | Project-specific (shared with team via git) |
 | `~/.copilot/skills/` | User-specific (your personal skills) |
 
+> 💡 **Skills from extra directories**: Use `/add-dir <path>` (or the `--add-dir` flag when launching Copilot) to add more directories to Copilot's search path. Copilot will automatically discover skills *and* custom agents from those directories too — handy when your skills live outside the standard locations, like a shared team folder.
+
 ### Skill Structure
 
 Each skill lives in its own folder with a `SKILL.md` file. You can optionally include scripts, examples, or other resources:
