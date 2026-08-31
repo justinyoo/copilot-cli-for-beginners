@@ -320,6 +320,8 @@ Proceed with implementation? [Y/n]
 
 > 📚 **Autopilot mode**: You may have noticed Shift+Tab cycles through a third mode called **Autopilot**. In autopilot mode, Copilot works through an entire plan without waiting for your input after each step — like handing a task to a colleague and saying "let me know when you're finished." The typical workflow is plan → accept → autopilot, which means you need to be good at writing plans first. You can also launch directly into autopilot with `copilot --autopilot`. Get comfortable with Interactive and Plan modes first, then see the [official docs](https://docs.github.com/copilot/concepts/agents/copilot-cli/autopilot) when you're ready.
 
+> 💡 **Reviewing the plan**: When Copilot shows a plan for your approval, press **Ctrl+E** to expand the plan card and see the full details. This is handy if the plan looks truncated.
+
 ---
 
 ### Mode 3: Programmatic Mode
@@ -395,8 +397,9 @@ That's it for getting started! As you become comfortable, you can explore additi
 | `/agent` | Browse and select from available agents |
 | `/env` | Show loaded environment details — what instructions, MCP servers, skills, agents, and plugins are active |
 | `/init` | Initialize Copilot instructions for your repository |
-| `/mcp` | Manage MCP server configuration |
-| `/skills` | Manage skills for enhanced capabilities |
+| `/mcp` | Manage MCP server configuration — also opens the unified plugins dashboard |
+| `/skills` | Manage skills for enhanced capabilities — also opens the unified plugins dashboard |
+| `/plugin` | Browse, install, and manage plugins — also opens the unified plugins dashboard |
 
 > 💡 Agents are covered in [Chapter 04](../04-agents-custom-instructions/README.md), skills are covered in [Chapter 05](../05-skills/README.md), and MCP servers are covered in [Chapter 06](../06-mcp-servers/README.md).
 
@@ -447,6 +450,8 @@ That's it for getting started! As you become comfortable, you can explore additi
 | `/session` | Show session info and workspace summary; use `/session delete`, `/session delete <id>`, or `/session delete-all` to remove sessions |
 | `/share` | Export session as a markdown file, GitHub gist, or self-contained HTML file |
 
+> 💡 **Session restore**: If your terminal crashes or your machine restarts while Copilot CLI is running, don't worry — the next time you start `copilot`, it will offer to **restore any sessions that were still open**. Just confirm when prompted and you'll pick up right where you left off.
+
 ### Display
 
 | Command | What It Does |
@@ -489,7 +494,7 @@ copilot
 
 > 💡 **Tip**: Some models cost more "premium requests" than others. Models marked **1x** (like Claude Sonnet 4.5) are a great default. They're capable and efficient. Higher-multiplier models use your premium request quota faster, so save those for when you really need them.
 
-> 💡 **Not sure which model to pick?** Select **`Auto`** from the model picker to let Copilot automatically choose the best available model for each session. This is a great default if you're just getting started and don't want to think about model selection.
+> 💡 **Not sure which model to pick?** Select **`Auto`** from the model picker to let Copilot automatically choose the best available model. In Auto mode, Copilot doesn't just pick one model at the start — it adapts its model selection as your task evolves during a conversation. This is the recommended default if you're just getting started and don't want to think about model selection.
 
 </details>
 

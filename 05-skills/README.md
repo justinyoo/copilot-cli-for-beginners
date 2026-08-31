@@ -545,22 +545,24 @@ Skills reloaded successfully.
 
 > 💡 **What are plugins?** Plugins are installable packages that can bundle skills, agents, and MCP server configurations together. Think of them as "app store" extensions for Copilot CLI.
 
-The `/plugin` command lets you browse and install these packages:
+The `/plugin` command opens the **plugins dashboard** — a unified interface for managing all your plugins, skills, and MCP servers in one place. You can also open the same dashboard by running `/skills` or `/mcp` (with no arguments):
 
 ```bash
 copilot
 
-> /plugin list
-# Shows installed plugins
+> /plugin
+# Opens the plugins dashboard
 
-> /plugin marketplace
-# Browse available plugins
+> /plugin list
+# Shows installed plugins (text list)
 
 > /plugin install <plugin-name>
 # Install a plugin from the marketplace
 ```
 
-To keep your local plugin catalog current, refresh it with:
+> 💡 **Updates available?** The plugins dashboard automatically flags installed plugins that have a newer version available, and offers an **Update** action right there. You'll always know when something needs refreshing.
+
+To keep your local plugin catalog current from the terminal, refresh it with:
 
 ```bash
 copilot plugin marketplace update

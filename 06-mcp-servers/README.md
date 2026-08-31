@@ -73,6 +73,8 @@ MCP Servers:
 ✓ filesystem (enabled) - File system access
 ```
 
+> 💡 **Prefer a visual overview?** Run `/mcp` with no arguments to open the **plugins dashboard** — a unified interface showing your MCP servers, skills, and plugins all in one place. You can enable, disable, and configure servers directly from the dashboard.
+
 > 💡 **Only seeing the GitHub server?** That's expected! If you haven't added any additional MCP servers yet, GitHub is the only one listed. You'll add more in the next section.
 
 > 📚 **Want to see all MCP management commands?** You can manage servers with `/mcp` slash commands inside chat, or with `copilot mcp` directly from your terminal. See the [full command reference](#-additional-mcp-commands) at the end of this chapter.
