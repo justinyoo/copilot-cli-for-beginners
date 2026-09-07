@@ -534,6 +534,22 @@ You are a Python specialist focused on code quality and best practices.
 | `description` | **Yes** | What the agent does - helps Copilot understand when to suggest it |
 | `tools` | No | List of allowed tools (omit = all tools available). See tool aliases below. |
 | `target` | No | Limit to `vscode` or `github-copilot` only |
+| `model` | No | AI model(s) to use. You can specify a single model name or a list of models tried in order until one is available to you. |
+| `model-policy` | No | Set to `required` to prevent switching to a model not on your `model` list. |
+
+> 💡 **Specifying a model list**: Listing multiple models in `model` is a handy fallback strategy. Copilot CLI tries each model in order and uses the first one your account can access. For example:
+>
+> ```markdown
+> ---
+> description: Careful code reviewer
+> model:
+>   - gpt-6-astra
+>   - claude-sonnet-4.6
+> model-policy: required
+> ---
+> ```
+>
+> This tries GPT-6 Astra first; if it's not available on your plan, it falls back to Claude Sonnet 4.6. Setting `model-policy: required` means Copilot will only use the models you listed.
 
 ### Tool Aliases
 
@@ -545,8 +561,6 @@ Use these names in the `tools` list:
 - `agent` - Invoke other custom agents
 
 > 📖 **Official docs**: [Custom agents configuration](https://docs.github.com/copilot/reference/custom-agents-configuration)
->
-> ⚠️ **VS Code Only**: The `model` property (for selecting AI models) works in VS Code but is not supported in GitHub Copilot CLI. You can safely include it for cross-platform agent files. GitHub Copilot CLI will ignore it.
 
 ### More Agent Templates
 
