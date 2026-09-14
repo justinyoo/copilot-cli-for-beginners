@@ -51,12 +51,11 @@ Learn what skills are, why they matter, and how they differ from agents and MCP.
 
 1. **See what skills are already available:**
    ```bash
-   copilot
-   > /skills list
+   copilot skill list
    ```
    This shows all skills Copilot can find, including any **built-in skills** that ship with the CLI itself, plus skills from your project and personal folders.
 
-   > 💡 **Built-in skills**: The Copilot CLI comes with skills pre-installed out of the box. For example, the `customizing-copilot-cloud-agents-environment` skill provides a guide for customizing the Copilot cloud agent's environment. You don't need to create or install anything to use these. Run `/skills list` to see what's available.
+   > 💡 **Built-in skills**: The Copilot CLI comes with skills pre-installed out of the box. For example, the `customizing-copilot-cloud-agents-environment` skill provides a guide for customizing the Copilot cloud agent's environment. You don't need to create or install anything to use these. Run `copilot skill list` to see what's available.
 
 2. **Look at a real skill file:** Check out our provided [code-checklist SKILL.md](../.github/skills/code-checklist/SKILL.md) to see the pattern. It's just YAML frontmatter plus markdown instructions.
 
@@ -476,26 +475,27 @@ Discover installed skills, find community skills, and share your own.
 
 ---
 
-## Managing Skills with the `/skills` Command
+## Managing Skills with the `copilot skill` Commands
 
-Use the `/skills` command to manage your installed skills:
+Use the `copilot skill` command to manage your installed skills from the terminal:
 
 | Command | What It Does |
 |---------|--------------|
-| `/skills list` | Show all installed skills |
-| `/skills info <name>` | Get details about a specific skill |
-| `/skills add <name>` | Enable a skill (from a repository or marketplace) |
-| `/skills remove <name>` | Disable or uninstall a skill |
-| `/skills reload` | Reload skills after editing SKILL.md files |
+| `copilot skill list` | Show all installed skills |
+| `copilot skill info <name>` | Get details about a specific skill |
+| `copilot skill add <name>` | Enable a skill (from a repository or marketplace) |
+| `copilot skill remove <name>` | Disable or uninstall a skill |
+| `copilot skill enable <name>` | Enable a disabled skill |
+| `copilot skill disable <name>` | Disable a skill without removing it |
+
+You can also use `/skill` slash commands inside a chat session for quick access.
 
 > 💡 **Remember**: You don't need to "activate" skills for each prompt. Once installed, skills are **automatically triggered** when your prompt matches their description. These commands are for managing which skills are available, not for using them.
 
 ### Example: View Your Skills
 
 ```bash
-copilot
-
-> /skills list
+copilot skill list
 
 Available skills:
 - security-audit: Security-focused code review checking OWASP Top 10
@@ -503,7 +503,7 @@ Available skills:
 - code-checklist: Team code quality checklist
 ...
 
-> /skills info security-audit
+copilot skill info security-audit
 
 Skill: security-audit
 Source: Project
@@ -524,20 +524,35 @@ Description: Security-focused code review checking OWASP Top 10 vulnerabilities
 
 ---
 
-### When to Use `/skills reload`
+### When to Use `copilot skill reload`
 
-After creating or editing a skill's SKILL.md file, run `/skills reload` to pick up the changes without restarting Copilot:
+After creating or editing a skill's SKILL.md file, reload skills to pick up the changes without restarting Copilot:
 
 ```bash
-# Edit your skill file
-# Then in Copilot:
+# Edit your skill file, then from the terminal:
+copilot skill reload
+
+# Or inside a Copilot session:
 > /skills reload
-Skills reloaded successfully.
 ```
 
 > 💡 **Good to know**: Skills remain effective even after using `/compact` to summarize your conversation history. No need to reload after compacting.
 
 ---
+
+### Related CLI Commands: Instructions and LSP Servers
+
+As you explore Copilot's extensibility further, you may encounter instructions (AI-powered project guidelines) and LSP servers (language-specific tools). Manage them with:
+
+```bash
+# View all custom instructions
+copilot instruction list
+
+# View all configured LSP servers (language-specific tools)
+copilot lsp list
+```
+
+These are advanced features covered in the official documentation. For this course, focus on skills, which handle the most common extension needs.
 
 ## Finding and Using Community Skills
 
@@ -717,14 +732,14 @@ EOF
 
 The examples above created `pytest-gen` and `pr-review` skills. Now practice creating a completely different kind of skill: one for generating formatted output from data.
 
-1. List your current skills: Run Copilot and pass it `/skills list`. You can also use `ls .github/skills/` to see project skills or `ls ~/.copilot/skills/` for personal skills.
+1. List your current skills: Run `copilot skill list` from your terminal. You can also use `ls .github/skills/` to see project skills or `ls ~/.copilot/skills/` for personal skills.
 2. Create a `book-summary` skill at `.github/skills/book-summary/SKILL.md` that generates a formatted markdown summary of the book collection
 3. Your skill should have:
    - Clear name and description (description is crucial for matching!)
    - Specific formatting rules (e.g., markdown table with title, author, year, read status)
    - Output conventions (e.g., use ✅/❌ for read status, sort by year)
 4. Test the skill: `@samples/book-app-project/data.json Summarize the books in this collection`
-5. Verify the skill auto-triggers by checking `/skills list`
+5. Verify the skill auto-triggers by running `copilot skill list` or checking inside Copilot with `/skills list`
 6. Try invoking it directly with `/book-summary Summarize the books in this collection`
 
 **Success criteria**: You have a working `book-summary` skill that Copilot automatically applies when you ask about the book collection.
@@ -766,7 +781,7 @@ copilot
 # The skill should auto-trigger based on the description match
 ```
 
-**If it doesn't trigger:** Try `/skills reload` then ask again.
+**If it doesn't trigger:** Try `copilot skill reload` or inside Copilot `/skills reload`, then ask again.
 
 </details>
 
@@ -830,7 +845,7 @@ copilot
     └── SKILL.md        # Must be exactly SKILL.md (case-sensitive)
 ```
 
-Run `/skills reload` after creating or editing skills to ensure changes are picked up.
+Run `copilot skill reload` (or `/skills reload` inside a session) after creating or editing skills to ensure changes are picked up.
 
 **Testing if a skill loads** - Ask Copilot directly:
 ```bash
