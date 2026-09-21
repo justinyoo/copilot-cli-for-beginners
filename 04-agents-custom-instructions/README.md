@@ -133,6 +133,28 @@ When reviewing code, always check for:
 
 > 💡 **Required vs Optional**: The `description` field is required. Other fields like `name`, `tools`, and `model` are optional.
 
+### Making Agents Aware of Project Instructions
+
+By default, agents use only their own instructions. To make an agent also read and follow your project-level instruction files (like `AGENTS.md`, `copilot-instructions.md`, or `CLAUDE.md`), add `include-custom-instructions: true` to the frontmatter:
+
+```markdown
+---
+name: project-aware-reviewer
+description: Reviewer that follows team standards
+include-custom-instructions: true
+---
+
+# Project-Aware Code Reviewer
+
+You review code while respecting project conventions defined in AGENTS.md.
+```
+
+**Why use this?** It ensures your agent applies both:
+- Its own specialized instructions (e.g., "focus on security")
+- Your team's conventions (e.g., "use PEP 8 + type hints")
+
+Without it, agents only follow their own instructions and ignore project standards.
+
 ## Where to put agent files
 
 | Location | Scope | Best For |
