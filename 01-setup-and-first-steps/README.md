@@ -428,6 +428,7 @@ That's it for getting started! As you become comfortable, you can explore additi
 | `/yolo` | Quick alias for `/allow-all on` — auto-approves all permission prompts. |
 | `/cwd`, `/cd [directory]` | View or change working directory |
 | `/list-dirs` | Show all allowed directories |
+| `/reset-allowed-tools` | Clear all exact sandbox permission grants (use when you want to go through prompts again) |
 
 > ⚠️ **Use with caution**: `/allow-all` and `/yolo` skip confirmation prompts. Great for trusted projects, but be careful with untrusted code.
 
@@ -438,6 +439,7 @@ That's it for getting started! As you become comfortable, you can explore additi
 | `/clear` | Abandons the current session (no history saved) and starts a fresh conversation |
 | `/compact` | Summarize conversation to reduce context usage |
 | `/context` | Show context window token usage and visualization |
+| `/fork` | Branch off work in a new session without waiting for the current turn to complete |
 | `/keep-alive` | Prevent your system from sleeping while Copilot CLI is active — handy for long-running tasks on a laptop |
 | `/new` | Ends the current session (saving it to history for search/resume) and starts a fresh conversation. |
 | `/resume` | Switch to a different session (optionally specify session ID or name) |
@@ -486,6 +488,18 @@ copilot
 
 # Shows available models and lets you pick one. Select Sonnet 4.5.
 ```
+
+#### Understanding Model Tiers
+
+When you run `/model`, you'll notice Copilot CLI can also suggest **routing tiers** — these control how your requests are prioritized:
+
+| Tier | When to Use | Cost Impact |
+|------|-------------|-------------|
+| **Auto** | You want Copilot to pick the best tier automatically (default) | Varies per request |
+| **Balance** | Good for most work — balanced speed and cost | Standard cost |
+| **Fast** | You need quick responses and don't mind less capable models | Lower cost, faster |
+
+If Copilot suggests a tier, you can accept it or press a shortcut to switch. This feature helps you get the most out of your quota!
 
 > 💡 **Tip**: Some models cost more "premium requests" than others. Models marked **1x** (like Claude Sonnet 4.5) are a great default. They're capable and efficient. Higher-multiplier models use your premium request quota faster, so save those for when you really need them.
 

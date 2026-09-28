@@ -558,6 +558,12 @@ copilot
 
 > /plugin install <plugin-name>
 # Install a plugin from the marketplace
+
+> /plugin enable <plugin-name>
+# Enable an installed plugin
+
+> /plugin disable <plugin-name>
+# Disable an installed plugin without uninstalling
 ```
 
 To keep your local plugin catalog current, refresh it with:
@@ -567,6 +573,8 @@ copilot plugin marketplace update
 ```
 
 Plugins can bundle multiple capabilities together. A single plugin might include related skills, agents, and MCP server configurations that work together.
+
+> 💡 **Tip**: Use `/plugin enable` and `/plugin disable` to quickly toggle plugins on and off — great for testing or managing which plugins load in each session.
 
 ### Community Skill Repositories
 
