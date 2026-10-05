@@ -281,6 +281,8 @@ copilot
 ```
 
 > 💡 **Tip**: **Shift+Tab** cycles between modes: Interactive → Plan → Autopilot. Press it anytime during an interactive session to switch modes without typing a command.
+>
+> 💡 **Keyboard shortcut**: Press **Ctrl+E** at the start of a session to pick whether you want to run locally or in the cloud. This is useful when you're working on different types of tasks that benefit from different environments.
 
 You can also launch Copilot CLI directly in plan mode using the `--plan` flag:
 
@@ -393,12 +395,15 @@ That's it for getting started! As you become comfortable, you can explore additi
 | Command | What It Does |
 |---------|--------------|
 | `/agent` | Browse and select from available agents |
+| `/config` | List, read, set, and remove Copilot CLI settings (e.g., default model, auto-approval behavior) |
 | `/env` | Show loaded environment details — what instructions, MCP servers, skills, agents, and plugins are active |
 | `/init` | Initialize Copilot instructions for your repository |
 | `/mcp` | Manage MCP server configuration |
 | `/skills` | Manage skills for enhanced capabilities |
 
 > 💡 Agents are covered in [Chapter 04](../04-agents-custom-instructions/README.md), skills are covered in [Chapter 05](../05-skills/README.md), and MCP servers are covered in [Chapter 06](../06-mcp-servers/README.md).
+> 
+> 💡 **Quick tip**: Use `/config set default_model auto` to make "Auto" your permanent default model selection, so you don't have to pick a model each time you start Copilot.
 
 ### Models and Subagents
 
@@ -484,12 +489,12 @@ Copilot CLI supports multiple AI models from OpenAI, Anthropic, Google, and othe
 copilot
 > /model
 
-# Shows available models and lets you pick one. Select Sonnet 4.5.
+# Shows available models and lets you pick one. Select Sonnet 4.5, Opus 5.1, or GPT-6.1 Sol.
 ```
 
-> 💡 **Tip**: Some models cost more "premium requests" than others. Models marked **1x** (like Claude Sonnet 4.5) are a great default. They're capable and efficient. Higher-multiplier models use your premium request quota faster, so save those for when you really need them.
+> 💡 **Tip**: Some models cost more "premium requests" than others. Models marked **1x** (like Claude Sonnet 4.5 or GPT-6.1 Sol) are a great default. They're capable and efficient. Higher-multiplier models use your premium request quota faster, so save those for when you really need them.
 
-> 💡 **Not sure which model to pick?** Select **`Auto`** from the model picker to let Copilot automatically choose the best available model for each session. This is a great default if you're just getting started and don't want to think about model selection.
+> 💡 **Not sure which model to pick?** Select **`Auto`** from the model picker to let Copilot automatically choose the best available model for each session. This is a great default if you're just getting started and don't want to think about model selection. You can also make this permanent with `/config set default_model auto`.
 
 </details>
 
